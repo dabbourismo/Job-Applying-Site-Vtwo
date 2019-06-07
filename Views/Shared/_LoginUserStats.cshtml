@@ -1,0 +1,42 @@
+﻿@using Microsoft.AspNet.Identity
+
+<!--Check if user is logged in-->
+<!--Request = fetch data from VIEW to Controller-->
+<!--Go to AccountController ===> LogOff action-->
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "Logoff" }))
+    {
+        <!--For error __RequestVerificationToken "Cross request forgery attack"-->
+        @Html.AntiForgeryToken()
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                <!--When user clicks on his name it will go to index action inside Manage Controller-->
+                @Html.ActionLink("اهلا "+User.Identity.GetUserName(),"Index","Manage")
+            </li>
+            <li>
+                <!--When user clicks logoff it will call the action LogOff which we specified its id with Logoff-->
+                <a href="javascript:document.getElementById('Logoff').submit()">تسجيل الخروج</a>
+                
+
+            </li>
+        </ul>
+    }
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li>
+            <a href="~/Account/Login">
+                <i class="glyphicon glyphicon-user"></i>
+                تسجيل الدخول
+            </a>
+        </li>
+        <li>
+            <a href="~/Account/Register">
+                <i class="glyphicon glyphicon-lock"></i>
+                اشتراك
+            </a>
+        </li>
+    </ul>
+}

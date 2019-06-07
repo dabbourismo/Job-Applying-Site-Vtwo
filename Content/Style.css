@@ -1,0 +1,65 @@
+﻿@font-face{
+    font-family:myFont;
+    src:url('font/DroidKufi-Regular.ttf')
+}
+
+@font-face{
+    font-family:Droid;
+    src:url('font/DroidKufi-Regular.ttf')
+}
+/*-------------------------------------------------------------------------------*/
+/*font and color of navbar items*/
+.navbar-default .navbar-nav > li > a {
+    color: #e7e7e7;
+    font-family:myFont;
+}
+.navbar-default .navbar-nav > li > a:hover {
+    color: #fff;
+    font-family:myFont;
+}
+/*Navbar color*/
+.navbar-default {
+    background-color: #5d8aa8;
+    border-color: #5d8aa8;
+   
+}
+.nav>li{
+    position:relative;
+    display:block;
+    height:75px;
+    padding-top:10px;
+}
+/*-------------------------------------------------------------------------------*/
+.myFooter{
+    background-color: #5d8aa8;
+    border-color: #5d8aa8;
+    padding:10px;
+    text-align:justify;
+    font-family:myFont;
+    height: 170px;
+    color:#e7e7e7;
+}
+.subfooter{
+    text-align:center;
+}
+.myFooter a {
+    color: #e7e7e7;
+    font-family:myFont;
+}
+.myFooter h3 {
+ margin-bottom:20px;
+}
+.myFooter a:hover {
+    color: #fff;
+    font-family:myFont;
+}
+
+.row {
+  margin-top:-20px;
+  text-align:right;
+}
+/*-------------------------------------------------------------------------------*/
+/*Fixing body Moving up*/
+body {
+    padding-top:120px
+}

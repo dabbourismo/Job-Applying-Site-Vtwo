@@ -1,0 +1,64 @@
+﻿@model IdentityComponents.Models.RegisterViewModel
+@{
+    ViewBag.Title = "اشتراك";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<!--To add more fields to the register page GO to AccountViewModel ==> RegisterViewModel Class-->
+
+
+@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    <h4>انشاء حساب جديد</h4>
+    <hr />
+    @Html.ValidationSummary("", new { @class = "text-danger" })
+        <!--Go to Account controller ==> Register Action and change to username-->
+    <div class="form-group">
+        @Html.LabelFor(m => m.UserName, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+        </div>
+    </div>
+        <!--Choosing(باحث او ناشر) from ViewBag.UserType inside the AccountController-->
+    <!--Dont forget to create it inside the AccountViewModel==> Register Action-->
+    <div class="form-group">
+        @Html.LabelFor(m => m.UserType, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+        <!--UserType is the name of the viewbag-->
+            @Html.DropDownList("UserType",null,new { @class = "form-control" })
+            <!--last thing after you did all-if you get ApplicationDbContext yellow screen of death you must enable Migrations-->
+            <!--1-go to package consol and type "enable-Migrations"-->
+            <!--2- Add-migration Addcolumn-->
+            <!--this will create class called (Add column) that we use to add or remove columns from identity database-->
+            <!--3-type "update-database"-->
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" class="btn btn-default" value="تسجيل" />
+        </div>
+    </div>
+}
+
+
