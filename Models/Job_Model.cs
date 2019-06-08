@@ -25,7 +25,7 @@ namespace JobApplicationSiteVtwo.Models
 
         //Creating foreign key
         [Display(Name = "تصنيف الوظيفة")]
-        public int Categories_Model_Id { get; set; }
+        public int Categories_ModelId { get; set; }
         public Categories_Model Categories_Model { get; set; }
     }
 }

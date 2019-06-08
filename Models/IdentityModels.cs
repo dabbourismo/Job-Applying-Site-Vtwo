@@ -35,6 +35,6 @@ namespace IdentityComponents.Models
 
         public System.Data.Entity.DbSet<JobApplicationSiteVtwo.Models.Categories_Model> Categories_Model { get; set; }
 
-       
+        public System.Data.Entity.DbSet<JobApplicationSiteVtwo.Models.Job_Model> Job_Model { get; set; }
     }
 }

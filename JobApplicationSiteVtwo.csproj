@@ -201,6 +201,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\Categories_ModelController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\Job_ModelController.cs" />
     <Compile Include="Controllers\MainLayoutController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -213,6 +214,10 @@
     <Compile Include="Migrations\201906081442376_Add_Category_table.cs" />
     <Compile Include="Migrations\201906081442376_Add_Category_table.Designer.cs">
       <DependentUpon>201906081442376_Add_Category_table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906081629324_Add_Jobs_Table.cs" />
+    <Compile Include="Migrations\201906081629324_Add_Jobs_Table.Designer.cs">
+      <DependentUpon>201906081629324_Add_Jobs_Table.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -598,6 +603,11 @@
     <Content Include="Views\Categories_Model\Details.cshtml" />
     <Content Include="Views\Categories_Model\Edit.cshtml" />
     <Content Include="Views\Categories_Model\Index.cshtml" />
+    <Content Include="Views\Job_Model\Create.cshtml" />
+    <Content Include="Views\Job_Model\Delete.cshtml" />
+    <Content Include="Views\Job_Model\Details.cshtml" />
+    <Content Include="Views\Job_Model\Edit.cshtml" />
+    <Content Include="Views\Job_Model\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="obj\Debug\TempPE\" />
@@ -868,6 +878,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201906081442376_Add_Category_table.resx">
       <DependentUpon>201906081442376_Add_Category_table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906081629324_Add_Jobs_Table.resx">
+      <DependentUpon>201906081629324_Add_Jobs_Table.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="obj\Debug\JobApplicationSiteVtwo.Migrations.Addcolumn.resources" />
   </ItemGroup>
