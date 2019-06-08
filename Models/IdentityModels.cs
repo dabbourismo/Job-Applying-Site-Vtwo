@@ -33,6 +33,8 @@ namespace IdentityComponents.Models
             return new ApplicationDbContext();
         }
 
-        public System.Data.Entity.DbSet<JobApplicationSiteVtwo.Models.CategoryModel> CategoryModels { get; set; }
+        public System.Data.Entity.DbSet<JobApplicationSiteVtwo.Models.Categories_Model> Categories_Model { get; set; }
+
+       
     }
 }
