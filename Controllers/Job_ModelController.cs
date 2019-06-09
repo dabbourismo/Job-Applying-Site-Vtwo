@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using IdentityComponents.Models;
 using JobApplicationSiteVtwo.Models;
+using System.IO;
 
 namespace JobApplicationSiteVtwo.Controllers
 {
@@ -49,10 +50,22 @@ namespace JobApplicationSiteVtwo.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,JobTitle,JobContent,JobImage,Categories_ModelId")] Job_Model job_Model)
+        //1- Remove Bind (شيل البايند من البارامترت)
+        //Bind(Include = "Id,JobTitle,JobContent,JobImage,Categories_ModelId")] 
+        //note that the instance name of httppostedfilebase is the same name as the input helper inside the Create.cshtml view
+        public ActionResult Create(Job_Model job_Model,HttpPostedFileBase uploadinput)
         {
             if (ModelState.IsValid)
             {
+                //add this for image upload
+                //using system.io
+                //this path combines the serverpath (مجلد اسمه ابلودز على السيرفر) with the filename
+                //(مجلد على السيرفر دي ) means create folder named uploads on root solution file
+                string path = Path.Combine(Server.MapPath("~/Uploads"), uploadinput.FileName);
+                uploadinput.SaveAs(path); //store the file on the server
+                job_Model.JobImage = uploadinput.FileName; //store the file path on database (inside the propertie)
+                //now to to the view ==> HTML.BeginForm();
+
                 db.Job_Model.Add(job_Model);
                 db.SaveChanges();
                 return RedirectToAction("Index");
